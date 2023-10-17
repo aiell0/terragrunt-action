@@ -11,7 +11,7 @@ function log {
 # remove ANSI color codes from argument variable
 function clean_colors {
   local -r input="$1"
-  echo "${input}" | sed -E 's/\x1B\[[0-9;]*[mGK]//g' | sed -E 's|%0A|\n|g ; s|%3C|<|g'
+  echo "${input}" | sed -E 's/\x1B\[[0-9;]*[mGK]//g' | sed 's|%0A|\n|g ; s|%3C|<|g'
 }
 
 # clean multiline text to be passed to Github API
